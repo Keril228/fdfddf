@@ -1,5 +1,5 @@
 from mcpi.minecraft import Minecraft
-mc = Minecraft.create()
+mc = Minecraft.create()#"217.182.203.129",28813
 uid = mc.getPlayerEntityId("Keril1337")
 pos = mc.entity.getPos(uid)
 x = pos.x
@@ -23,19 +23,19 @@ plate = 126,5
 d_o=0
 stup = 164,4
 dub = 17
-decor_1=     [0,0,0,0,0,0,plate,0,0,0,0,0,0, #14 по x 13 по y
-             0,0,0,0,0,0,0,0,0,0,0,0,0,
-             0,0,0,0,0,0,0,0,0,0,0,0,0,
-             0,0,0,0,0,188,0,188,0,0,0,0,0,
+decor_1=    [0,0,0,0,0,0,plate,0,0,0,0,0,0, #14 по x 13 по y
+            0,0,0,0,0,0,0,0,0,0,0,0,0,
+            0,0,0,0,0,0,0,0,0,0,0,0,0,
+            0,0,0,0,0,188,0,188,0,0,0,0,0,
              0,0,0,0,0,188,d_o,188,0,0,0,0,0,
              0,0,0,0,188,dub,d_o,dub,188,0,0,0,0,
-             0,0,0,0,188,d_o,d_o,0,188,0,0,0,0,
+             0,0,0,188,188,d_o,d_o,0,188,188,0,0,0,
              0,0,0,188,d_o,d_o,d_o,0,d_o,188,0,0,0,
-             0,0,0,188,dub,d_o,d_o,d_o,dub,188,0,0,0,
+             0,0,188,188,dub,d_o,d_o,d_o,0,188,188,0,0,
              0,0,188,d_o,d_o,d_o,d_o,d_o,d_o,d_o,188,0,0,
              0,0,188,dub,d_o,d_o,d_o,d_o,d_o,dub,188,0,0,
              0,188,d_o,d_o,d_o,d_o,d_o,d_o,d_o,d_o,d_o,188,0,
-             0,dub,d_o,d_o,d_o,d_o,d_o,d_o,d_o,d_o,d_o,dub,0,
+             188,0,d_o,d_o,d_o,d_o,d_o,d_o,d_o,d_o,d_o,dub,0,
              188,d_o,d_o,d_o,d_o,d_o,d_o,d_o,d_o,d_o,d_o,d_o,188]
 
 
@@ -138,7 +138,7 @@ nos_6=[0,0,0,0,0,0,0,
 
 #низ корабля 11
 for i in range(4):
-    mc.setBlocks(x+11,y-i-1,z+i,x+25-i,y-i-1,z+i+12,d_o)
+    mc.setBlocks(x + 13 + i, y - 1 - i, z + i, x + 25 - i, y - i-1, z - i + 11,d_o)
 #нос корабля
 nose(nos_1,5)
 nose(nos_2,4)
@@ -159,6 +159,44 @@ mc.setBlocks(x+27,y+6,z+1,x+27,y+9,z+2,d_o)
 mc.setBlocks(x+27,y+6,z+10,x+27,y+9,z+11,d_o)
 mc.setBlocks(x+26,y+9,z+1,x+26,y+9,z+2,d_o)
 mc.setBlocks(x+26,y+9,z+10,x+26,y+9,z+11,d_o)
+
 #забор
 mc.setBlocks(x+13+1,y+6,z,x+21,y+6,z,188)
 mc.setBlocks(x+13+1,y+6,z+12,x+21,y+6,z+12,188,2)
+bl = 35,15
+wh = 35
+gr= 35,8
+grf = 35,7
+#Парус
+parus =[0,bl,bl,bl,bl,bl,bl,bl,bl,bl,0,
+        bl,bl,gr,gr,grf,gr,gr,gr,gr,bl,bl,
+        bl,bl,gr,wh,wh,grf,wh,wh,gr,bl,bl,
+        bl,bl,wh,wh,wh,wh,bl,bl,wh,bl,bl,
+        bl,bl,wh,gr,wh,wh,bl,bl,wh,bl,bl,
+        bl,bl,wh,wh,grf,grf,grf,wh,wh,bl,bl,
+        bl,bl,grf,bl,bl,bl,bl,bl,grf,bl,bl,
+        bl,bl,gr,gr,wh,wh,wh,gr,gr,bl,bl,
+        0,bl,bl,bl,bl,bl,bl,bl,bl,bl,0]
+parus2 = [0,0,bl,bl,bl,bl,bl,bl,bl,bl,bl,0,0,
+         0,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,0,
+         bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,
+         bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,
+         bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,
+         bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,
+         bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,
+         bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,
+         bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,
+         0,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,bl,0,
+         0,0,bl,bl,bl,bl,bl,bl,bl,bl,bl,0,0]
+count=0
+for s in range(9):
+    for j in range(11):
+        mc.setBlock(x+16,y-s+20,z+j+1,parus[count])
+        count+=1
+mc.setBlocks(x+12,y+6,z+6,x+12,y+13,z+6,dub)
+mc.setBlocks(x+17,y+6,z+6,x+17,y+15,z+6,dub)
+mc.setBlocks(x+17,y+15,z+2,x+17,y+15,z+10,dub)
+count = 0
+#for i in range(11):
+    #for j in range(13):
+        #mc.setBlock(x+17,y-i+20,z+j+1,parus_2[count])
